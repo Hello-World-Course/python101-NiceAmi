@@ -1,5 +1,6 @@
-board_size = None
-number_of_mines = None
+# name = None
+# board_size = None
+# number_of_mines = None
 
 
 name = input("Hello, what's your name: ")
