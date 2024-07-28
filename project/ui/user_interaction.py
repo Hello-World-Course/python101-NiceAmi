@@ -19,17 +19,14 @@ else:
     else:
         board_size = int(board_size_input)
 
-        # Calculate the maximum allowable mines
         max_mines = (board_size * board_size) // 2  # Using multiplication instead of exponentiation
 
         # Get the number of mines
         number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate: ")
 
-        # Validate the number of mines
         if not number_of_mines_input.isdigit() or not (0 < int(number_of_mines_input) <= max_mines):
             print(f"{name}, you have entered illegal number of mines")
         else:
             number_of_mines = int(number_of_mines_input)
-
 
             print(f"{name}, the board size is: {board_size}, number of mines is: {number_of_mines}. ENJOY!")
