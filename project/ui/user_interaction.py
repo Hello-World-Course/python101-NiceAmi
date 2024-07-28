@@ -3,37 +3,33 @@ name = None
 board_size = None
 number_of_mines = None
 
-# Get player name
-name_input = input("Hello, whats your name")
-if len(name_input) > 2:
-    name = name_input
-else:
+# Prompt user for their name
+name = input("Hello, whats your name")
+
+# Validate name length
+if len(name) <= 2:
     print("Your name is too short")
-
-# Get board size if name is valid
-if name is not None:
+else:
+    # Prompt user for board size
     board_size_input = input(f"{name}, please choose board size")
-    try:
-        board_size_int = int(board_size_input)
-        if 0 < board_size_int < 26:
-            board_size = board_size_int
-        else:
-            print(f"{name}, you have entered illegal board size")
-    except ValueError:
-        print(f"{name}, you have entered illegal board size")
 
-# Get number of mines if board size is valid
-if board_size is not None:
-    number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate")
-    try:
-        number_of_mines_int = int(number_of_mines_input)
+    # Validate board size
+    if not board_size_input.isdigit() or not (0 < int(board_size_input) < 26):
+        print(f"{name}, you have entered illegal board size")
+    else:
+        board_size = int(board_size_input)
+
+        # Calculate maximum number of mines
         max_mines = (board_size * board_size) // 2
-        if 0 < number_of_mines_int <= max_mines:
-            number_of_mines = number_of_mines_int
-        else:
+
+        # Prompt user for number of mines
+        number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate")
+
+        # Validate number of mines
+        if not number_of_mines_input.isdigit() or not (0 < int(number_of_mines_input) <= max_mines):
             print(f"{name}, you have entered illegal number of mines")
-    except ValueError:
-        print(f"{name}, you have entered illegal number of mines")
+        else:
+            number_of_mines = int(number_of_mines_input)
 
 # Print final values
 print(f'name = "{name}"')
