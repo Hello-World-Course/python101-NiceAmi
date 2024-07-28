@@ -2,6 +2,7 @@ name = None
 board_size = None
 number_of_mines = None
 
+
 name = input("Hello, what's your name: ")
 if len(name) <= 2:
     print("Your name is too short")
@@ -11,8 +12,7 @@ else:
         print(f"{name}, you have entered illegal board size")
     else:
         board_size = int(board_size_input)
-
-        max_mines = (board_size * board_size) // 2  # Using multiplication instead of exponentiation
+        max_mines = (board_size * board_size) // 2
 
         number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate: ")
 
