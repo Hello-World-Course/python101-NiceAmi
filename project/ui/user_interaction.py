@@ -31,5 +31,5 @@ else:
         else:
             number_of_mines = int(number_of_mines_input)
 
-            # Print the game setup
+
             print(f"{name}, the board size is: {board_size}, number of mines is: {number_of_mines}. ENJOY!")
