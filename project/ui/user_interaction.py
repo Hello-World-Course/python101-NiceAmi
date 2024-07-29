@@ -21,7 +21,6 @@ if len(name_input) > 2:
         name = None
 else:
     print("Your name is too short")
-
 print(f"name = {name!r}")
 print(f"board_size = {board_size}")
 print(f"number_of_mines = {number_of_mines}")
