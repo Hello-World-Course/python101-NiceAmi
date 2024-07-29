@@ -7,17 +7,13 @@ if len(name) <= 2:
     print("Your name is too short")
 else:
     board_size_input = input(f"{name}, please choose board size")
-    if not board_size_input.isdigit() or not (0 < int(board_size_input) < 26):
-        print(f"{name}, you have entered illegal board size")
-    else:
+    if board_size_input.isdigit() and 0 < int(board_size_input) < 26:
         board_size = int(board_size_input)
-        max_mines = (board_size * board_size) // 2
         number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate")
-        if not number_of_mines_input.isdigit() or not (0 < int(number_of_mines_input) <= max_mines):
-            print(f"{name}, you have entered illegal number of mines")
-        else:
+        max_mines = (board_size * board_size) // 2
+        if number_of_mines_input.isdigit() and 0 < int(number_of_mines_input) <= max_mines:
             number_of_mines = int(number_of_mines_input)
-
-# Print the game setup if all inputs are valid
-if name and board_size and number_of_mines:
-    print(f"{name}, the board size is: {board_size}, number of mines is: {number_of_mines}. ENJOY!")
+        else:
+            print(f"{name}, you have entered illegal number of mines")
+    else:
+        print(f"{name}, you have entered illegal board size")
