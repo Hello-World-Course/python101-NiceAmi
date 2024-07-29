@@ -1,7 +1,6 @@
 name = None
 board_size = None
 number_of_mines = None
-
 name_input = input("Hello, whats your name\n")
 if len(name_input) > 2:
     name = name_input
