@@ -42,6 +42,5 @@ def register_user():
 
     return name, board_size, number_of_mines
 
-
 user_name, user_board_size, user_num_mines = register_user()
 print(f"name:{user_name}, board size:{user_board_size}, number of mines:{user_num_mines}")
