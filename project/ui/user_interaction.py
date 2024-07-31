@@ -15,6 +15,7 @@ else:
     else:
         board_size = int(board_size_input)
         max_mines = (board_size * board_size) // 2
+
         number_of_mines_input = input(f"{name}, for board size {board_size}, choose number of mines to allocate: ")
 
         if not number_of_mines_input.isdigit() or not (0 < int(number_of_mines_input) <= max_mines):
