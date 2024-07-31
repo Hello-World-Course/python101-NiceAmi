@@ -1,18 +1,28 @@
 def is_name_valid(name):
     return len(name) > 2
 
+
 def is_board_size_valid(board_size):
-    board_size = int(board_size)
-    return 0 < board_size < 26
+    try:
+        board_size = int(board_size)
+        return 0 < board_size < 26
+    except ValueError:
+        return False
+
 
 def is_number_of_mines_valid(board_size, number_of_mines):
-    board_size = int(board_size)
-    number_of_mines = int(number_of_mines)
-    max_mines = (board_size * board_size) // 2
-    return 0 < number_of_mines <= max_mines
+    try:
+        board_size = int(board_size)
+        number_of_mines = int(number_of_mines)
+        max_mines = (board_size * board_size) // 2
+        return 0 < number_of_mines <= max_mines
+    except ValueError:
+        return False
+
 
 def register_user():
-    name = input("Hello, what's your name? ")
+    # Name input
+    name = input("Hello, whats your name? ")
     if not is_name_valid(name):
         print("Your name is too short")
         return None
@@ -33,8 +43,6 @@ def register_user():
 
     return name, board_size, number_of_mines
 
-# Example usage
-user_info = register_user()
-if user_info:
-    user_name, user_board_size, user_num_mines = user_info
-    print(f"name: {user_name}, board size: {user_board_size}, number of mines: {user_num_mines}")
+
+user_name, user_board_size, user_num_mines = register_user()
+print(f"name:{user_name}, board size:{user_board_size}, number of mines:{user_num_mines}")
