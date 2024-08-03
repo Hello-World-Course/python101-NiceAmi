@@ -25,24 +25,24 @@ def register_user():
     name = input("Hello, whats your name? ")
     if not is_name_valid(name):
         print("Your name is too short")
-        return None
+        return None, None, None
 
+    # Board size input
     board_size = input(f"{name}, please choose board size: ")
     if not is_board_size_valid(board_size):
         print(f"{name}, you have entered illegal board size")
-        return None
+        return None, None, None
 
     board_size = int(board_size)
 
+    # Number of mines input
     number_of_mines = input(f"{name}, for board size {board_size}, choose number of mines to allocate: ")
     if not is_number_of_mines_valid(board_size, number_of_mines):
         print(f"{name}, you have entered illegal number of mines")
-        return None
+        return None, None, None
 
     number_of_mines = int(number_of_mines)
 
     return name, board_size, number_of_mines
 
 
-user_name, user_board_size, user_num_mines = register_user()
-print(f"name:{user_name}, board size:{user_board_size}, number of mines:{user_num_mines}")
